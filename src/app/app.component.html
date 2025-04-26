@@ -1,12 +1,9 @@
 <mat-toolbar>
   <mat-icon>pets</mat-icon>
-  <span class="title">Dog Breed</span>
-  <button mat-stroked-button aria-label="icon-button with share icon">
+  <span class="title">{{'common.appName' | translate}}</span>
+  <button mat-stroked-button (click)="switchLanguage()">
     <mat-icon>language</mat-icon>
-    language
+    {{'common.language' | translate }}
   </button>
-
 </mat-toolbar>
 <router-outlet />
-
-
