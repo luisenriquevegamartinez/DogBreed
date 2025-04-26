@@ -1,1 +1,17 @@
-<p>breed-picture works!</p>
+<p>
+  <strong>
+    {{'common.breed' | translate }}:
+  </strong>
+  {{ 'breeds.' + breedName | translate }}
+</p>
+
+@if(subBreedName){
+<p>
+  <strong>
+    {{'common.subBreed' | translate }}:
+  </strong>
+  {{ 'breeds.' +breedName + '.' + subBreedName | translate }}
+</p>
+}
+
+<img [src]="breedPicture" alt="">
