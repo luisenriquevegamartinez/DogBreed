@@ -1,7 +1,8 @@
 {
   "common": {
     "language": "Español",
-    "appName": "Raza de Perro"
+    "appName": "Raza de Perro",
+    "search": "Buscar"
   },
   "breeds": {
     "affenpinscher": "Affenpinscher",

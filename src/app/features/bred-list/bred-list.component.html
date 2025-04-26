@@ -1,16 +1,18 @@
 <div class="breed-list-container">
   <mat-form-field class="breed-list-container__search-field" appearance="outline">
-    <mat-label>Search</mat-label>
+    <mat-label>{{'common.search' | translate }}</mat-label>
     <input [formControl]="searchControl" type="search" matInput>
     <mat-icon matSuffix>search</mat-icon>
   </mat-form-field>
   <mat-list class="list" role="list">
     @for (breed of filteredBreeds; track $index) {
-    <mat-list-item role="listitem">{{'breeds.' + breed.name| translate }}</mat-list-item>
+    <mat-list-item role="listitem" (click)="navigateToBreedPage(breed.name)">{{'breeds.' + breed.name | translate
+      }}</mat-list-item>
     @if (breed.subBreeds.length > 0) {
     <mat-list role="list" class="list__sub-list">
-      @for (subBread of breed.subBreeds; track $index) {
-      <mat-list-item role="listitem">{{'breeds.' + breed.name | translate }}</mat-list-item>
+      @for (subBreed of breed.subBreeds; track $index) {
+      <mat-list-item role="listitem" (click)="navigateToBreedPage(breed.name, subBreed)">{{'breeds.' + breed.name + '.'
+        + subBreed | translate }}</mat-list-item>
       }
     </mat-list>
     }

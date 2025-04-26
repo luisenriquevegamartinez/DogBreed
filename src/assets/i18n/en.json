@@ -1,7 +1,8 @@
 {
   "common": {
     "language": "English",
-    "appName": "Dog Breed"
+    "appName": "Dog Breed",
+    "search": "Search"
   },
   "breeds": {
     "affenpinscher": "Affenpinscher",

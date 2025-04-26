@@ -72,4 +72,8 @@ export class BredListComponent implements OnInit {
       normalizedStr2.includes(normalizedStr1)
     );
   }
+
+  navigateToBreedPage(breed: string, subBreed?: string) {
+    throw new Error('Method not implemented.');
+  }
 }
