@@ -5,7 +5,7 @@ import {
 } from '@angular/common/http/testing';
 import { DogApiService } from './dog-api.service';
 import { environment } from '../environments/environment';
-import { DogBreedLIst, ResponseWrapper } from './dog-api.interface';
+import { DogBreedLIstDto, ResponseWrapper } from './dog-api.interface';
 
 describe('DogApiService', () => {
   let service: DogApiService;
@@ -30,13 +30,16 @@ describe('DogApiService', () => {
   });
 
   it('should get breeds', () => {
-    const mockResponse: ResponseWrapper<DogBreedLIst> = {
+    const mockResponse: ResponseWrapper<DogBreedLIstDto> = {
       message: { beagle: [], bulldog: [] },
       status: 'success',
     };
 
     service.getBreeds().subscribe((breeds) => {
-      expect(breeds).toEqual(mockResponse.message);
+      expect(breeds).toEqual([
+        { name: 'beagle', subBreeds: [] },
+        { name: 'bulldog', subBreeds: [] },
+      ]);
     });
 
     const req = httpMock.expectOne(`${apiUrl}/breeds/list/all`);

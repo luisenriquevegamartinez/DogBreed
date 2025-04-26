@@ -3,8 +3,11 @@ export interface ResponseWrapper<T> {
   status: 'success' | 'error';
 }
 
-
-export interface DogBreedLIst {
+export interface DogBreedLIstDto {
   [dogBreed: string]: string[];
 }
 
+export interface DogBreedModel {
+  name: string;
+  subBreeds: string[];
+};
