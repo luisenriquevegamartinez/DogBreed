@@ -1,0 +1,16 @@
+.breed-list-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 1rem;
+  gap: 1rem;
+  &__search-field {
+    width: 100%;
+  }
+}
+
+.list {
+  &__sub-list{
+    margin-left: 2rem;
+  }
+}
