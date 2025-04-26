@@ -1,6 +1,12 @@
 <mat-toolbar>
+  @if(shouldShowBackButton()){
+  <button mat-icon-button (click)="goHome()">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+  } @else {
   <mat-icon>pets</mat-icon>
-  <span class="title">{{'common.appName' | translate}}</span>
+  }
+  <span class="title" (click)="goHome()">{{'common.appName' | translate}}</span>
   <button mat-stroked-button (click)="switchLanguage()">
     <mat-icon>language</mat-icon>
     {{'common.language' | translate }}

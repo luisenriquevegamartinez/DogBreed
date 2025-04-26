@@ -5,10 +5,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatListModule } from '@angular/material/list';
 import { DogApiService } from '../../core/api/dog-api.service';
 import { DogBreedModel } from '../../core/api/dog-api.interface';
-import { CommonModule } from '@angular/common';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { debounceTime } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-bred-list',
@@ -27,6 +27,7 @@ import { debounceTime } from 'rxjs';
 export class BredListComponent implements OnInit {
   private dogApiService = inject(DogApiService);
   private translate = inject(TranslateService);
+  private router = inject(Router);
   private breeds: DogBreedModel[] = [];
   public filteredBreeds: DogBreedModel[] = [];
   public searchControl = new FormControl<string>('');
@@ -73,7 +74,7 @@ export class BredListComponent implements OnInit {
     );
   }
 
-  navigateToBreedPage(breed: string, subBreed?: string) {
-    throw new Error('Method not implemented.');
+  navigateToBreedPicture(breed: string, subBreed?: string) {
+    this.router.navigate(['picture', breed, subBreed].filter(Boolean));
   }
 }

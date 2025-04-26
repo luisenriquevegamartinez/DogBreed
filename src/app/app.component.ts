@@ -1,5 +1,5 @@
-import { Component, inject, OnInit } from '@angular/core';
-import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { Router, RouterOutlet } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -20,13 +20,26 @@ import { Language } from './core/enums/language';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent{
+export class AppComponent {
   private translate = inject(TranslateService);
+  private router = inject(Router);
   private currentLang: Language = environment.defaultLanguage as Language;
+  public isBackButtonVisible = false;
 
   switchLanguage() {
-    const newLang: Language = this.currentLang === Language.Spanish ? Language.English : Language.Spanish;
+    const newLang: Language =
+      this.currentLang === Language.Spanish
+        ? Language.English
+        : Language.Spanish;
     this.translate.use(newLang);
     this.currentLang = newLang;
+  }
+
+  shouldShowBackButton(): boolean {
+    return this.router.url !== '/list';
+  }
+
+  goHome() {
+    this.router.navigate(['list']);
   }
 }
