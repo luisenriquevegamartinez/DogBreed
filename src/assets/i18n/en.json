@@ -4,7 +4,10 @@
     "appName": "Dog Breed",
     "search": "Search",
     "breed": "Breed",
-    "subBreed": "Sub-breed"
+    "subBreed": "Sub-breed",
+    "loadImage": "Load Image",
+    "goBack": "Go Back",
+    "otherSubBreeds": "Other sub-breeds"
   },
   "breeds": {
     "affenpinscher": "Affenpinscher",

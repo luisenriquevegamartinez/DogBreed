@@ -4,7 +4,10 @@
     "appName": "Raza de Perro",
     "search": "Buscar",
     "breed": "Raza",
-    "subBreed": "Subraza"
+    "subBreed": "Subraza",
+    "loadImage": "Cargar Imagen",
+    "goBack": "Regresar",
+    "otherSubBreeds": "Otras subrazas"
   },
   "breeds": {
     "affenpinscher": "Affenpinscher",

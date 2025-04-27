@@ -1,0 +1,24 @@
+.container {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+
+.card{
+  max-width: 300px;
+  &__image{
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+  }
+  &__header{
+    padding: 1rem;
+  }
+  &__content{
+    padding: 1rem;
+  }
+  &__footer{
+    padding: 1rem;
+  }
+}

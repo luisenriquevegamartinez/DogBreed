@@ -1,17 +1,51 @@
-<p>
-  <strong>
-    {{'common.breed' | translate }}:
-  </strong>
-  {{ 'breeds.' + breedName | translate }}
-</p>
-
-@if(subBreedName){
-<p>
-  <strong>
-    {{'common.subBreed' | translate }}:
-  </strong>
-  {{ 'breeds.' +breedName + '.' + subBreedName | translate }}
-</p>
-}
-
-<img [src]="breedPicture" alt="">
+<div class="container">
+  <mat-card appearance="outlined" class="card">
+    <mat-card-header class="card__header">
+      <mat-card-title>
+        @if(subBreedName){
+        {{ 'breeds.' +breedName + '.' + subBreedName | translate }}
+        } @else {
+        {{ 'breeds.' + breedName | translate }}
+        }
+      </mat-card-title>
+      <mat-card-subtitle>
+      </mat-card-subtitle>
+    </mat-card-header>
+    <img class="card__image" mat-card-image [src]="breedPicture">
+    <mat-card-content class="card__content">
+      <p>
+        <strong>{{'common.breed' | translate }}:</strong>
+        &nbsp;
+        @if(subBreedName){
+        <mat-chip (click)="goToBreedPage()">
+          {{ 'breeds.' + breedName | translate }}
+        </mat-chip>
+        } @else {
+        {{ 'breeds.' + breedName | translate }}
+        }
+      </p>
+      @if(subBreedName){
+      <p>
+        <strong>{{'common.subBreed' | translate }}:</strong>
+        {{ 'breeds.' +breedName + '.' + subBreedName | translate }}
+      </p>
+      }
+    </mat-card-content>
+    @if(subBreeds.length > 0){
+    <mat-card-footer class="card__footer">
+      <p><strong>{{'common.otherSubBreeds' | translate}}:</strong></p>
+      <mat-chip-set aria-label="Chihuahua traits">
+        @for (subBreed of subBreeds; track $index) {
+        <mat-chip (click)="goToBreedPage(subBreed)">
+          {{ 'breeds.' + breedName + '.' + subBreed | translate }}
+        </mat-chip>
+        }
+      </mat-chip-set>
+    </mat-card-footer>
+    }
+    <mat-card-actions>
+      <button mat-button (click)="fetchImage()">{{'common.loadImage' | translate}}</button>
+      <button mat-button (click)="goBack()">{{'common.goBack' | translate}}</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
