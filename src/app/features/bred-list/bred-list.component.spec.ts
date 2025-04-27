@@ -7,6 +7,7 @@ import {
 } from '@angular/common/http/testing';
 import { provideTranslateTesting } from '../../core/providers/translate-testing.provider';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { DogApiServiceMock } from '../../core/api/dog-api.service.mock.test';
 
 describe('BredListComponent', () => {
   let component: BredListComponent;
@@ -22,17 +23,7 @@ describe('BredListComponent', () => {
       providers: [
         provideHttpClientTesting(),
         provideTranslateTesting(),
-        {
-          provide: 'DogApiService',
-          useValue: {
-            getBreeds: () => [],
-            getSubBreeds: () => [],
-            getRandomImage: () => [],
-            getRandomImages: () => [],
-            getRandomImageByBreed: () => [],
-            getRandomImagesByBreed: () => [],
-          },
-        },
+        DogApiServiceMock,
       ],
     }).compileComponents();
 
