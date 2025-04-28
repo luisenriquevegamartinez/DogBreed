@@ -70,5 +70,6 @@ export class BreedPictureComponent implements OnInit {
 
   goToBreedPage(subBreed?: string) {
     this.router.navigate(['picture', this.breedName, subBreed].filter(Boolean));
+    this.fetchImage();
   }
 }
