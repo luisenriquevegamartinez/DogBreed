@@ -25,9 +25,9 @@ export class BreedPictureComponent implements OnInit {
   private route = inject(ActivatedRoute);
   private router = inject(Router);
 
-  public breedName: string = '';
-  public subBreedName: string = '';
-  public breedPicture: string = '';
+  public breedName = '';
+  public subBreedName = '';
+  public breedPicture = '';
   public subBreeds: string[] = [];
 
   ngOnInit() {

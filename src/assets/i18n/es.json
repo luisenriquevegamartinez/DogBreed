@@ -7,7 +7,8 @@
     "subBreed": "Subraza",
     "loadImage": "Cargar Imagen",
     "goBack": "Regresar",
-    "otherSubBreeds": "Otras subrazas"
+    "otherSubBreeds": "Otras subrazas",
+    "dogPictureAlt" : "Imagen de perro de la raza {{breed}}"
   },
   "breeds": {
     "affenpinscher": "Affenpinscher",

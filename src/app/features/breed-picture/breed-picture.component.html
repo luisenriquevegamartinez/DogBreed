@@ -11,7 +11,8 @@
       <mat-card-subtitle>
       </mat-card-subtitle>
     </mat-card-header>
-    <img class="card__image" mat-card-image [src]="breedPicture">
+    <img class="card__image" mat-card-image [src]="breedPicture" width="300" height="300"
+      [alt]="'common.dogPictureAlt' | translate: { breed: subBreedName || breedName }" />
     <mat-card-content class="card__content">
       <p>
         <strong>{{'common.breed' | translate }}:</strong>

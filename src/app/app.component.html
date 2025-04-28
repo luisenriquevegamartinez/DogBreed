@@ -1,13 +1,16 @@
 <mat-toolbar>
   @if(shouldShowBackButton()){
-  <button mat-icon-button (click)="goHome()">
+  <button mat-icon-button (click)="goHome()" (keydown.enter)="goHome()" (keydown.space)="goHome()" tabindex="0">
     <mat-icon>arrow_back</mat-icon>
   </button>
   } @else {
-  <mat-icon>pets</mat-icon>
+  <mat-icon tabindex="0">pets</mat-icon>
   }
-  <span class="title" (click)="goHome()">{{'common.appName' | translate}}</span>
-  <button mat-stroked-button (click)="switchLanguage()">
+  <span class="title" (click)="goHome()" (keydown.enter)="goHome()" (keydown.space)="goHome()" tabindex="0">
+    {{'common.appName' | translate}}
+  </span>
+  <button mat-stroked-button (click)="switchLanguage()" (keydown.enter)="switchLanguage()"
+    (keydown.space)="switchLanguage()" tabindex="0">
     <mat-icon>language</mat-icon>
     {{'common.language' | translate }}
   </button>

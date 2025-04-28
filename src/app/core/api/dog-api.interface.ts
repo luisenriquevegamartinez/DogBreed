@@ -3,9 +3,7 @@ export interface ResponseWrapper<T> {
   status: 'success' | 'error';
 }
 
-export interface DogBreedLIstDto {
-  [dogBreed: string]: string[];
-}
+export type DogBreedLIstDto = Record<string, string[]>;
 
 export interface DogBreedModel {
   name: string;
