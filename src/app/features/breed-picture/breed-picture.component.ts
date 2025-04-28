@@ -31,41 +31,44 @@ export class BreedPictureComponent implements OnInit {
   public subBreeds: string[] = [];
 
   ngOnInit() {
+    this.getUrlParams();
     this.fetchImage();
     this.getSubBreeds();
   }
 
-  fetchImage() {
+  getUrlParams() {
     this.route.params.subscribe(({ breed, subBreed }) => {
       this.breedName = breed;
       this.subBreedName = subBreed || '';
+    });
+  }
 
-      const image$ = this.subBreedName
-        ? this.dogApiService.getRandomImageByBreed(
-            `${this.breedName}/${this.subBreedName}`
-          )
-        : this.dogApiService.getRandomImageByBreed(this.breedName);
-      image$.subscribe((image) => {
-        this.breedPicture = image;
-      });
+  fetchImage() {
+    const image$ = this.subBreedName
+      ? this.dogApiService.getRandomImageBySubBreed(
+          this.breedName,
+          this.subBreedName
+        )
+      : this.dogApiService.getRandomImageByBreed(this.breedName);
+
+    image$.subscribe((image) => {
+      this.breedPicture = image;
     });
   }
 
   getSubBreeds() {
     this.dogApiService.getSubBreeds(this.breedName).subscribe((subBreeds) => {
-      this.subBreeds = subBreeds.filter(subBreed => subBreed !== this.subBreedName);
+      this.subBreeds = subBreeds.filter(
+        (subBreed) => subBreed !== this.subBreedName
+      );
     });
   }
 
   goBack() {
-    this.router.navigate(['/list'], { relativeTo: this.route });
+    this.router.navigate(['list']);
   }
 
   goToBreedPage(subBreed?: string) {
-    this.router.navigate([
-      'picture',
-      this.breedName,
-      subBreed
-    ].filter(Boolean));
+    this.router.navigate(['picture', this.breedName, subBreed].filter(Boolean));
   }
 }

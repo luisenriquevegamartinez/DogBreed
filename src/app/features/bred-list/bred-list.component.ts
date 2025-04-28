@@ -32,8 +32,6 @@ export class BredListComponent implements OnInit {
   public filteredBreeds: DogBreedModel[] = [];
   public searchControl = new FormControl<string>('');
 
-  search() {}
-
   ngOnInit() {
     this.dogApiService.getBreeds().subscribe((breeds) => {
       this.breeds = breeds;
